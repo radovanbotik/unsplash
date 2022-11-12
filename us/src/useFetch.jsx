@@ -2,9 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 // const url2 = "https://api.unsplash.com/photos/?client_id=";
-const url = "https://api.unsplash.com/photos/";
 
-export default function useFetch() {
+export default function useFetch(props) {
+  // let url = `https://api.unsplash.com/search/photos?query=${props}`;
+  let url = `https://api.unsplash.com/photos?page=${props}`;
   const access = import.meta.env.VITE_ACCESS;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,7 +34,7 @@ export default function useFetch() {
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(props);
+  }, [props]);
   return { data, loading };
 }

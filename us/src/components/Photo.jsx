@@ -2,7 +2,6 @@ import React from "react";
 import "./Photo.css";
 
 export default function Photo(props) {
-  console.log(props);
   const {
     likes,
     urls: { regular },
